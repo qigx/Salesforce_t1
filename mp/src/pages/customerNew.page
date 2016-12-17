@@ -1,0 +1,34 @@
+<apex:page docType="html-5.0" applyHtmlTag="false" applyBodyTag="false"
+           showHeader="false" sidebar="false" standardController="Account" extensions="CustomerController">
+<html>
+
+    <head>
+        <title>HTML5 Container Page</title>
+    </head>
+
+    <body>
+      <apex:sectionHeader title="取引先" subtitle="新規"/>
+      <apex:form >
+        <apex:pageBlock mode="edit">
+          <apex:pageBlockButtons >
+            <apex:commandButton value="戻る" action="{!URLFOR($Page.CustomerEdit)}" id="backButton" immediate="true"/>
+            <apex:commandButton action="{!save}" value="保存"/>
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection title="取引先情報" columns="2">
+            <apex:inputField value="{!account.AccountNumber}"/>
+            <apex:inputField value="{!account.name}"/>
+            <apex:inputField value="{!account.type}"/>
+            <apex:inputField value="{!account.industry}"/>
+            <apex:inputField value="{!account.phone}"/>
+            <apex:inputField value="{!account.fax}"/>
+            <apex:inputField value="{!account.website}"/>
+          </apex:pageBlockSection>
+          <apex:pageBlockSection title="住所情報" columns="2">
+            <apex:inputField value="{!account.BillingCity}"/>
+          </apex:pageBlockSection>
+        </apex:pageBlock>
+      </apex:form>
+    </body>
+
+</html>
+</apex:page>
