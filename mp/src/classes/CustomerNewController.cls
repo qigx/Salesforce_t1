@@ -1,6 +1,6 @@
-public with sharing class CustomerController {
+public with sharing class CustomerNewController {
   public Account account {get;set;}
-  public CustomerController(ApexPages.StandardController controller) {
+  public CustomerNewController(ApexPages.StandardController controller) {
     account = new Account();
   }
   public PageReference save() {
@@ -23,5 +23,9 @@ public with sharing class CustomerController {
     return new PageReference('/apex/CustomerList');
   }
 
+  public Account getAccount() {
+      return [SELECT Id, AccountNumber, Name, type, industry, phone, fax, website FROM Account
+              WHERE Id = :System.currentPageReference().getParameters().get('id')];
+  }
 
 }

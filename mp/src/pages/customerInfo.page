@@ -1,0 +1,26 @@
+<apex:page standardController="Account" extensions="CustomerInfoController">
+  <apex:sectionHeader title="取引先" subtitle="詳細情報"/>
+  <apex:form >
+    <apex:pageBlock mode="detail">
+      <apex:pageMessages />
+
+      <apex:pageBlockButtons >
+        <apex:commandButton value="戻る" action="{!URLFOR($Page.CustomerList)}" id="backButton" immediate="true"/>
+        <apex:commandButton value="変更" action="{!URLFOR($Page.CustomerEdit)}?id={!id}" id="editButton" />
+        <apex:commandButton action="{!del}" value="削除"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="取引先情報" columns="2">
+        <apex:outputField value="{!account.AccountNumber}" />
+        <apex:outputField value="{!account.name}" />
+        <apex:outputField value="{!account.type}" />
+        <apex:outputField value="{!account.industry}" />
+        <apex:outputField value="{!account.phone}" />
+        <apex:outputField value="{!account.fax}" />
+        <apex:outputField value="{!account.website}" />
+      </apex:pageBlockSection>
+      <apex:pageBlockSection title="住所情報" columns="2">
+
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>
